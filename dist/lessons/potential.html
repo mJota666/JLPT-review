@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Học cách chia và dùng thể khả năng tiếng Nhật JLPT N4.">
+  <title>Thể khả năng · JLPT Review</title>
+  <link rel="stylesheet" href="../styles.css">
+  <script defer src="../player.js"></script>
+</head>
+<body class="player">
+  <header class="player-header">
+    <a href="../">Tất cả bài học</a>
+    <span>Thể khả năng · N4</span>
+  </header>
+  <main class="deck" id="deck">
+    <section class="slide">
+      <p class="eyebrow">Ngữ pháp JLPT N4</p>
+      <h1><span lang="ja">可能形</span><br><span class="transform">Thể khả năng</span></h1>
+      <p class="lead" data-step>Dùng khi muốn nói ai đó có thể làm gì, hoặc một việc có thực hiện được trong hoàn cảnh hiện tại hay không.</p>
+      <span class="huge-kanji" aria-hidden="true">能</span>
+    </section>
+
+    <section class="slide">
+      <h2>Cách chia theo nhóm</h2>
+      <div class="grid-3">
+        <article class="card" data-step><h3>Nhóm I</h3><p>Đổi âm cuối từ hàng う sang hàng え rồi thêm る.</p><p lang="ja" class="jp">書く → <strong class="transform">書ける</strong></p></article>
+        <article class="card" data-step><h3>Nhóm II</h3><p>Bỏ る, thêm られる.</p><p lang="ja" class="jp">食べる → <strong class="transform">食べられる</strong></p></article>
+        <article class="card" data-step><h3>Nhóm III</h3><p lang="ja" class="jp">する → <strong class="transform">できる</strong></p><p lang="ja" class="jp">来る → <strong class="transform"><ruby>来<rt>こ</rt></ruby>られる</strong></p></article>
+      </div>
+    </section>
+
+    <section class="slide">
+      <h2>Nói về điều mình làm được</h2>
+      <div class="flow">
+        <div data-step><span class="role">Hành động</span><p lang="ja" class="jp">日本語を 話します。</p><p>Tôi nói tiếng Nhật.</p></div>
+        <div data-step><span class="role">Khả năng</span><p lang="ja" class="jp">日本語<span class="transform">が 話せます</span>。</p><p>Tôi có thể nói tiếng Nhật.</p></div>
+      </div>
+      <p data-step>Với nhiều động từ khả năng, nội dung có thể làm thường đi với <span lang="ja" class="jp">が</span>. Trong thực tế, <span lang="ja" class="jp">を</span> cũng xuất hiện.</p>
+    </section>
+
+    <section class="slide">
+      <h2>Cùng đuôi られる, khác nghĩa</h2>
+      <div class="grid-2">
+        <article class="card" data-step><span class="role">Khả năng</span><p lang="ja" class="jp">私は 辛い料理が 食べられます。</p><p>Tôi ăn được món cay.</p></article>
+        <article class="card" data-step><span class="role">Bị động</span><p lang="ja" class="jp">私は 弟に ケーキを 食べられました。</p><p>Tôi bị em trai ăn mất bánh.</p></article>
+      </div>
+      <p data-step>Ở câu thứ hai, <span lang="ja" class="jp">弟に</span> chỉ người đã ăn bánh, còn <span lang="ja" class="jp">私</span> là người chịu ảnh hưởng.</p>
+    </section>
+
+    <section class="slide">
+      <p class="eyebrow">Kiểm tra nhanh</p>
+      <h2>Chia thể khả năng của 泳ぐ</h2>
+      <p data-step>Từ nào có nghĩa là “có thể bơi”?</p>
+      <div class="quiz-options" data-step role="group" aria-label="Các đáp án">
+        <button type="button" lang="ja" class="quiz-option" aria-pressed="false" data-feedback="泳がれる là thể bị động.">A. 泳がれる</button>
+        <button type="button" lang="ja" class="quiz-option" aria-pressed="false" data-correct data-feedback="Đúng. ぐ đổi thành げ, rồi thêm る.">B. 泳げる</button>
+        <button type="button" lang="ja" class="quiz-option" aria-pressed="false" data-feedback="泳いで là thể て.">C. 泳いで</button>
+      </div>
+      <p class="quiz-result" role="status"></p>
+    </section>
+  </main>
+  <nav class="controls" aria-label="Điều khiển bài học">
+    <button class="nav-btn" id="prev" type="button">Lùi</button>
+    <div class="progress-group">
+      <span class="counter" id="counter" role="status"></span>
+      <progress id="progress" aria-label="Tiến độ bài học"></progress>
+    </div>
+    <button class="nav-btn" id="next" type="button">Tiếp</button>
+  </nav>
+</body>
+</html>
