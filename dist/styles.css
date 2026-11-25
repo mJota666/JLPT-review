@@ -1,3 +1,11 @@
+@font-face {
+  font-family: "Spectral";
+  src: url("./fonts/Spectral-Regular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
 :root {
   --ink: #17231c;
   --paper: #f4f0e4;
@@ -64,7 +72,11 @@ button:focus-visible, a:focus-visible { outline: 3px solid var(--yellow); outlin
   font-size: clamp(.875rem, 1.1vw, 1rem);
 }
 
-h1, h2, .jp {
+h1, h2 {
+  font-family: "Spectral", Georgia, serif;
+  font-weight: 400;
+}
+.jp, h1 [lang="ja"] {
   font-family: "Yu Mincho", "Hiragino Mincho ProN", "Noto Serif JP", serif;
 }
 h1 {
@@ -72,13 +84,11 @@ h1 {
   margin: 0;
   font-size: clamp(3.4rem, 10vw, 9rem);
   line-height: 1.02;
-  letter-spacing: -.06em;
 }
 h2 {
   margin: 0 0 1.5rem;
   font-size: clamp(2.2rem, 5vw, 5.5rem);
-  line-height: 1;
-  letter-spacing: -.04em;
+  line-height: 1.15;
 }
 h3 { margin: 0 0 .5rem; font-size: clamp(1.1rem, 1.8vw, 1.5rem); }
 p { max-width: 65ch; font-size: clamp(1rem, 1.5vw, 1.35rem); line-height: 1.6; }
@@ -240,12 +250,7 @@ progress::-moz-progress-bar { background: var(--green); border-radius: 1rem; }
   gap: clamp(1.5rem, 7vw, 7rem);
   padding: clamp(3rem, 8vw, 7rem) 0 clamp(3rem, 7vw, 6rem);
 }
-.library-intro h1, .library-section-title h2 {
-  max-width: none;
-  font-family: "Instrument Serif", Georgia, serif;
-  font-weight: 500;
-}
-.library-intro h1 { font-size: clamp(3rem, 7.2vw, 7.4rem); line-height: .99; }
+.library-intro h1 { max-width: none; font-size: clamp(3rem, 7.2vw, 7.4rem); line-height: 1.04; }
 .library-intro h1 span { color: var(--red); }
 .library-intro p { max-width: 36ch; margin: 1.35rem 0; }
 .primary-link {
