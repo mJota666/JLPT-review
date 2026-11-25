@@ -92,7 +92,8 @@ h2 {
 }
 h3 { margin: 0 0 .5rem; font-size: clamp(1.1rem, 1.8vw, 1.5rem); }
 p { max-width: 65ch; font-size: clamp(1rem, 1.5vw, 1.35rem); line-height: 1.6; }
-.lead { max-width: 48ch; font-size: clamp(1.2rem, 2.2vw, 2rem); }
+.slide p { font-size: clamp(1.125rem, 1.8vw, 1.6rem); }
+.slide .lead { max-width: 48ch; font-size: clamp(1.3rem, 2.4vw, 2.15rem); }
 .huge-kanji {
   position: absolute;
   right: clamp(1rem, 7vw, 7rem);
@@ -126,7 +127,32 @@ p { max-width: 65ch; font-size: clamp(1rem, 1.5vw, 1.35rem); line-height: 1.6; }
   background: var(--green);
   font-weight: 800;
 }
-.jp { font-size: clamp(1.25rem, 2.2vw, 2rem); line-height: 1.6; }
+.slide p.jp, .quiz-option {
+  font-size: clamp(1.6rem, 2.65vw, 2.8rem);
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+span.jp { font-size: 1.18em; }
+.annotated {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .35em .3em;
+  max-width: none;
+}
+.part {
+  max-inline-size: 100%;
+  padding: .08em .23em .2em;
+  border-radius: .25rem;
+  color: #203c51;
+  background: #e0ecf3;
+}
+.part-topic, .part-subject { color: #184c39; background: #dceee1; }
+.part-object, .part-ability { color: #5c3c0d; background: #f4e7c7; }
+.part-predicate { color: #862c21; background: #f7e2db; }
+.part-label {
+  display: block;
+  font: 700 clamp(.875rem, 1.2vw, 1.0625rem)/1.3 "Source Sans 3", "Segoe UI", sans-serif;
+}
 .transform { color: var(--red); font-weight: 900; }
 .muted { opacity: .65; }
 
@@ -153,6 +179,7 @@ p { max-width: 65ch; font-size: clamp(1rem, 1.5vw, 1.35rem); line-height: 1.6; }
   border: 1px solid var(--ink);
   color: var(--ink);
   background: transparent;
+  font-family: "Yu Mincho", "Hiragino Mincho ProN", "Noto Serif JP", serif;
   text-align: left;
   cursor: pointer;
   transition: transform .2s, background .2s, color .2s;
@@ -301,6 +328,7 @@ progress::-moz-progress-bar { background: var(--green); border-radius: 1rem; }
 .lesson-kanji { color: var(--green); font: 600 clamp(1.25rem, 3vw, 2.2rem)/1.2 "Yu Mincho", serif; }
 .lesson-copy { display: grid; gap: .3rem; }
 .lesson-copy strong { font-size: clamp(1.15rem, 2vw, 1.5rem); }
+.lesson-copy > span { font-size: clamp(1.05rem, 1.5vw, 1.25rem); }
 .lesson-length, .library-help { font-size: .875rem; }
 .library-help { color: #425247; }
 

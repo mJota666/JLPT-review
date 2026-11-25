@@ -27,16 +27,24 @@
       <div class="flow">
         <div data-step>
           <span class="role">Chủ động</span>
-          <p lang="ja" class="jp">先生は 私を ほめました。</p>
+          <p lang="ja" class="jp annotated">
+            <span class="part part-topic">先生は<span lang="vi" class="part-label">Chủ đề</span></span>
+            <span class="part part-object">私を<span lang="vi" class="part-label">Tân ngữ</span></span>
+            <span class="part part-predicate">ほめました。<span lang="vi" class="part-label">Vị ngữ</span></span>
+          </p>
           <p>Cô giáo đã khen tôi.</p>
         </div>
         <div data-step>
           <span class="role">Bị động</span>
-          <p lang="ja" class="jp">私は 先生に ほめられました。</p>
+          <p lang="ja" class="jp annotated">
+            <span class="part part-topic">私は<span lang="vi" class="part-label">Chủ đề</span></span>
+            <span class="part part-agent">先生に<span lang="vi" class="part-label">Tác nhân</span></span>
+            <span class="part part-predicate">ほめられました。<span lang="vi" class="part-label">Vị ngữ</span></span>
+          </p>
           <p>Tôi đã được cô giáo khen.</p>
         </div>
       </div>
-      <p data-step>Đưa người/vật chịu tác động lên làm chủ đề với <span class="jp">は</span>. Người gây tác động đi với <span class="jp">に</span>.</p>
+      <p data-step><span lang="ja" class="jp">は</span> đánh dấu chủ đề. Trong câu bị động này, chủ đề là người chịu tác động, còn <span lang="ja" class="jp">に</span> đánh dấu người thực hiện hành động.</p>
     </section>
 
     <section class="slide">
@@ -76,8 +84,16 @@
         <div data-step><span class="role">Chủ động</span><p lang="ja" class="jp"><b>A</b> は <b>B</b> を V</p></div>
         <div data-step><span class="role">Bị động</span><p lang="ja" class="jp"><b>B</b> は <b>A</b> に V (bị động)</p></div>
       </div>
-      <div class="sentence" data-step><p lang="ja" class="jp">課長は 私を しかりました。</p></div>
-      <div class="sentence" data-step><p class="jp transform">私は 課長に しかられました。</p><p>Tôi bị trưởng phòng mắng.</p></div>
+      <div class="sentence" data-step><p lang="ja" class="jp annotated">
+            <span class="part part-topic">課長は<span lang="vi" class="part-label">Chủ đề</span></span>
+            <span class="part part-object">私を<span lang="vi" class="part-label">Tân ngữ</span></span>
+            <span class="part part-predicate">しかりました。<span lang="vi" class="part-label">Vị ngữ</span></span>
+      </p></div>
+      <div class="sentence" data-step><p lang="ja" class="jp annotated">
+            <span class="part part-topic">私は<span lang="vi" class="part-label">Chủ đề</span></span>
+            <span class="part part-agent">課長に<span lang="vi" class="part-label">Tác nhân</span></span>
+            <span class="part part-predicate">しかられました。<span lang="vi" class="part-label">Vị ngữ</span></span>
+      </p><p>Tôi bị trưởng phòng mắng.</p></div>
     </section>
 
     <section class="slide">
@@ -85,11 +101,21 @@
       <h2>Giữ vật, đổi người</h2>
       <div class="sentence" data-step>
         <span class="role">Chủ động</span>
-        <p lang="ja" class="jp">知らない人が 私に 道を 聞きました。</p>
+        <p lang="ja" class="jp annotated">
+            <span class="part part-subject">知らない人が<span lang="vi" class="part-label">Chủ ngữ</span></span>
+            <span class="part part-recipient">私に<span lang="vi" class="part-label">Người được hỏi</span></span>
+            <span class="part part-object">道を<span lang="vi" class="part-label">Tân ngữ</span></span>
+            <span class="part part-predicate">聞きました。<span lang="vi" class="part-label">Vị ngữ</span></span>
+        </p>
       </div>
       <div class="sentence" data-step>
         <span class="role">Bị động</span>
-        <p class="jp transform">私は 知らない人に 道を 聞かれました。</p>
+        <p lang="ja" class="jp annotated">
+            <span class="part part-topic">私は<span lang="vi" class="part-label">Chủ đề</span></span>
+            <span class="part part-agent">知らない人に<span lang="vi" class="part-label">Tác nhân</span></span>
+            <span class="part part-object">道を<span lang="vi" class="part-label">Tân ngữ</span></span>
+            <span class="part part-predicate">聞かれました。<span lang="vi" class="part-label">Vị ngữ</span></span>
+        </p>
         <p>Tôi bị một người lạ hỏi đường.</p>
       </div>
       <p data-step>Mẫu câu · <span class="jp">A が B に C を V → B は A に C を V (bị động)</span></p>
@@ -101,12 +127,21 @@
       <div class="grid-2">
         <article class="card" data-step>
           <span class="role">Trước</span>
-          <p lang="ja" class="jp">友達は 私の携帯を 壊しました。</p>
+          <p lang="ja" class="jp annotated">
+            <span class="part part-topic">友達は<span lang="vi" class="part-label">Chủ đề</span></span>
+            <span class="part part-object">私の携帯を<span lang="vi" class="part-label">Tân ngữ</span></span>
+            <span class="part part-predicate">壊しました。<span lang="vi" class="part-label">Vị ngữ</span></span>
+          </p>
           <p>Bạn làm hỏng điện thoại của tôi.</p>
         </article>
         <article class="card" data-step>
           <span class="role">Sau</span>
-          <p class="jp transform">私は 友達に 携帯を 壊されました。</p>
+          <p lang="ja" class="jp annotated">
+            <span class="part part-topic">私は<span lang="vi" class="part-label">Chủ đề</span></span>
+            <span class="part part-agent">友達に<span lang="vi" class="part-label">Tác nhân</span></span>
+            <span class="part part-object">携帯を<span lang="vi" class="part-label">Tân ngữ</span></span>
+            <span class="part part-predicate">壊されました。<span lang="vi" class="part-label">Vị ngữ</span></span>
+          </p>
           <p>Tôi bị bạn làm hỏng điện thoại.</p>
         </article>
       </div>
@@ -117,16 +152,32 @@
       <p class="eyebrow">Tác phẩm &amp; phát minh</p>
       <h2>により / によって</h2>
       <p data-step class="lead">Dùng để nêu tác giả, người phát minh hoặc tác nhân mang tính lịch sử. Không quan trọng ai làm? Có thể lược bỏ.</p>
-      <div class="sentence" data-step><p lang="ja" class="jp">電話は グラハム・ベル<span class="transform">によって</span> 発明されました。</p><p>Điện thoại được Graham Bell phát minh.</p></div>
-      <div class="sentence" data-step><p lang="ja" class="jp">この家は 200年前に 建てられました。</p><p>Ngôi nhà này được xây cách đây 200 năm.</p></div>
+      <div class="sentence" data-step><p lang="ja" class="jp annotated">
+            <span class="part part-topic">電話は<span lang="vi" class="part-label">Chủ đề</span></span>
+            <span class="part part-agent">グラハム・ベルによって<span lang="vi" class="part-label">Tác nhân</span></span>
+            <span class="part part-predicate">発明されました。<span lang="vi" class="part-label">Vị ngữ</span></span>
+      </p><p>Điện thoại được Graham Bell phát minh.</p></div>
+      <div class="sentence" data-step><p lang="ja" class="jp annotated">
+            <span class="part part-topic">この家は<span lang="vi" class="part-label">Chủ đề</span></span>
+            <span class="part part-time">200年前に<span lang="vi" class="part-label">Thời gian</span></span>
+            <span class="part part-predicate">建てられました。<span lang="vi" class="part-label">Vị ngữ</span></span>
+      </p><p>Ngôi nhà này được xây cách đây 200 năm.</p></div>
     </section>
 
     <section class="slide">
       <p class="eyebrow">Bị động phiền toái</p>
       <h2>Bị động với nội động từ</h2>
       <div class="grid-2">
-        <article class="card" data-step><p lang="ja" class="jp">今朝、雨に 降られました。</p><p>Sáng nay tôi bị mắc mưa.</p></article>
-        <article class="card" data-step><p lang="ja" class="jp">夜中に 友達に 来られて、困りました。</p><p>Bạn đến giữa đêm làm tôi rất phiền.</p></article>
+        <article class="card" data-step><p lang="ja" class="jp annotated">
+            <span class="part part-time">今朝、<span lang="vi" class="part-label">Thời gian</span></span>
+            <span class="part part-agent">雨に<span lang="vi" class="part-label">Tác nhân</span></span>
+            <span class="part part-predicate">降られました。<span lang="vi" class="part-label">Vị ngữ</span></span>
+        </p><p>Sáng nay tôi bị mắc mưa.</p></article>
+        <article class="card" data-step><p lang="ja" class="jp annotated">
+            <span class="part part-time">夜中に<span lang="vi" class="part-label">Thời gian</span></span>
+            <span class="part part-agent">友達に<span lang="vi" class="part-label">Tác nhân</span></span>
+            <span class="part part-predicate">来られて、困りました。<span lang="vi" class="part-label">Vị ngữ</span></span>
+        </p><p>Bạn đến giữa đêm làm tôi rất phiền.</p></article>
       </div>
       <p data-step>Mẫu này diễn tả tình huống người nói bị ảnh hưởng ngoài ý muốn. Với việc tốt, tiếng Nhật thường ưu tiên <span class="jp">〜てもらう / 〜てくれる</span>.</p>
     </section>
