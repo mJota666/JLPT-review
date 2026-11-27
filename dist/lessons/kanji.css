@@ -1,0 +1,169 @@
+.kanji-player {
+  --cream: #fff0d3;
+  --shell: #fffcf6;
+  --pink: #f8cbd6;
+  --orange: #ffe3a2;
+  --berry: #91354b;
+  --outline: #ad5267;
+  --japanese: "Yu Gothic", "Meiryo", "Hiragino Kaku Gothic ProN", "Noto Sans CJK JP", sans-serif;
+  background: var(--cream);
+}
+
+.kanji-player .slide {
+  background:
+    repeating-linear-gradient(90deg, transparent 0 2.5rem, #fff9 2.5rem calc(2.5rem + 2px)),
+    repeating-linear-gradient(0deg, transparent 0 2.5rem, #fff9 2.5rem calc(2.5rem + 2px)),
+    var(--cream);
+  padding: clamp(.85rem, 3vw, 2.75rem);
+  justify-items: center;
+}
+.kanji-player .slide::after { content: none; }
+.kanji-player [lang="ja"] { font-family: var(--japanese); }
+.kanji-player #loading { margin-inline: auto; padding: 1rem; }
+.kanji-player .player-header, .kanji-player .controls { background: var(--shell); }
+.kanji-player .controls[hidden] { display: none; }
+.kanji-player .nav-btn { border-color: var(--berry); color: var(--berry); }
+.kanji-player .nav-btn:last-child { background: var(--berry); color: white; }
+.kanji-player a:focus-visible, .kanji-player button:focus-visible {
+  outline: 3px solid var(--berry);
+}
+.kanji-player progress { accent-color: var(--berry); }
+.kanji-player progress::-webkit-progress-value { background: var(--berry); }
+.kanji-player progress::-moz-progress-bar { background: var(--berry); }
+
+.lesson-window {
+  width: min(100%, 65rem);
+  min-width: 0;
+  border: 1px solid var(--outline);
+  background: var(--shell);
+  box-shadow: .32rem .32rem 0 #ad526752;
+}
+.window-bar {
+  display: flex;
+  align-items: center;
+  gap: .65rem;
+  padding: .55rem .85rem;
+  border-bottom: 1px solid var(--outline);
+  background: var(--pink);
+  color: #672437;
+  font-weight: 750;
+}
+.window-bar::before {
+  content: "";
+  inline-size: .55rem;
+  block-size: .55rem;
+  border-radius: 50%;
+  background: var(--berry);
+  box-shadow: .78rem 0 var(--berry), 1.56rem 0 var(--berry);
+  margin-inline-end: 1.65rem;
+  flex-shrink: 0;
+}
+.window-body {
+  padding: clamp(1rem, 3vw, 2.65rem);
+  text-align: center;
+}
+.kanji-player h1 {
+  max-width: none;
+  color: var(--berry);
+  font-size: clamp(2.6rem, 6vw, 5.1rem);
+  line-height: 1.15;
+}
+.window-body h2 { margin-block: 0 .35em; font-size: clamp(2.1rem, 4vw, 3.7rem); }
+.window-body p { margin: .65em auto; }
+.kanji-folders {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(.65rem, 2vw, 1.5rem);
+  margin: 1.8rem 0 1.05rem;
+  padding: 0;
+}
+.kanji-folders a {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  gap: .1rem;
+  min-width: 0;
+  padding: .62rem .25rem;
+  border: 1px solid var(--outline);
+  border-radius: .16rem .5rem .25rem .25rem;
+  background: var(--pink);
+  color: #672437;
+  font-weight: 750;
+  text-decoration: none;
+}
+.kanji-folders a::before {
+  content: "";
+  position: absolute;
+  inset: -.45rem auto auto -.06rem;
+  width: 38%;
+  height: .42rem;
+  border: 1px solid var(--outline);
+  border-bottom: none;
+  border-radius: .25rem .45rem 0 0;
+  background: inherit;
+}
+.kanji-folders a:hover { background: #f3aebf; }
+.folder-glyph { font-size: clamp(1.9rem, 5vw, 3.5rem); line-height: 1.2; }
+.practice-links { display: flex; flex-wrap: wrap; justify-content: center; gap: .75rem 1.25rem; }
+.practice-links a { color: #782c3e; font-weight: 750; text-underline-offset: .2em; }
+
+.window-body .kanji-glyph {
+  margin: 0;
+  color: var(--berry);
+  font-weight: 750;
+  font-size: clamp(6rem, 15vw, 10rem);
+  line-height: 1.1;
+}
+.window-body .han-reading { color: var(--berry); font-weight: 750; font-size: clamp(1.35rem, 3.2vw, 2.3rem); }
+.reading-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: .7rem;
+  margin-block-end: 0;
+}
+.reading-grid > div { padding: .7rem; border: 1px solid #ae8273; background: #f7ebdf; }
+.reading-grid .reading-on { background: var(--pink); }
+.reading-grid .reading-kun { background: var(--orange); }
+.reading-grid dt { font-weight: 750; }
+.reading-grid dd { margin: .35em 0 0; font-size: clamp(1.2rem, 2.7vw, 2rem); overflow-wrap: anywhere; }
+
+.vocab-table { width: 100%; border-collapse: collapse; text-align: left; table-layout: fixed; }
+.vocab-table th, .vocab-table td { padding: .4em .55em; overflow-wrap: anywhere; }
+.vocab-table td { border-bottom: 1px solid #95686b47; font-size: clamp(.98rem, 1.8vw, 1.45rem); }
+.vocab-table td[lang="ja"] { font-size: clamp(1.15rem, 2.5vw, 1.95rem); line-height: 1.4; }
+.vocab-table thead th { border-bottom: 1px solid var(--outline); }
+.vocab-on th { background: var(--pink); color: #672437; }
+.vocab-kun th { background: var(--orange); color: #523500; }
+.vocab-special th { background: #242020; color: white; }
+.vocab-on td[lang="ja"] { color: #782c3e; }
+.vocab-kun td[lang="ja"] { color: #664000; }
+.vocab-special td[lang="ja"] { color: #242020; }
+.kanji-player .step-mode tr.step-enter {
+  animation-name: vocab-appear;
+}
+@keyframes vocab-appear { from { opacity: 0; } }
+
+.window-body .practice-title { font-size: clamp(2.4rem, 7vw, 5rem); overflow-wrap: anywhere; }
+.window-body .sentential-prompt {
+  font-size: clamp(2.05rem, 5vw, 3.65rem);
+  line-height: 1.52;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+.practice-answer { margin-top: 1.1rem; padding: .5rem; border-top: 1px solid var(--outline); }
+.practice-answer .answer-kana { font-size: clamp(1.3rem, 3vw, 2.15rem); overflow-wrap: anywhere; }
+.reading-breakdown { justify-content: center; font-size: clamp(1.2rem, 2.4vw, 1.9rem); }
+.reading-breakdown .part-time, .reading-breakdown .part-place, .reading-breakdown .part-partner { background: #e0ecf3; }
+.reading-breakdown .part-target { background: #f4e7c7; color: #5c3c0d; }
+.reading-breakdown .segment-jp { overflow-wrap: anywhere; }
+
+@media (max-width: 560px) {
+  .kanji-player .slide { align-content: start; }
+  .kanji-folders { gap: .85rem .5rem; }
+  .reading-grid { grid-template-columns: 1fr; }
+  .vocab-table th, .vocab-table td { padding-inline: .28em; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .kanji-player .step-mode tr.step-enter { animation: none; }
+}

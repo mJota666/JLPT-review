@@ -1,0 +1,163 @@
+{
+  "title": "Kanji bài 6A",
+  "level": "N5",
+  "kanji": [
+    {
+      "glyph": "大",
+      "han": "Đại",
+      "kun": "おお",
+      "on": "ダイ、タイ",
+      "meaning": "To, lớn",
+      "vocab": [
+        ["on","大学","だいがく","trường đại học"],
+        ["on","大学生","だいがくせい","sinh viên"],
+        ["on","大好きな","だいすきな","rất thích"],
+        ["on","大使館","たいしかん","đại sứ quán"],
+        ["on","大切な","たいせつな","quan trọng, quý giá"],
+        ["kun","大きい","おおきい","to, lớn"],
+        ["kun","大家","おおや","chủ nhà"],
+        ["special","大人","おとな","người lớn"]
+      ]
+    },
+    {
+      "glyph": "小",
+      "han": "Tiểu",
+      "kun": "ちい、こ、お",
+      "on": "ショウ",
+      "meaning": "Nhỏ, bé, ít",
+      "vocab": [
+        ["on","小学生","しょうがくせい","học sinh tiểu học"],
+        ["on","小学校","しょうがっこう","trường tiểu học"],
+        ["on","小説","しょうせつ","tiểu thuyết"],
+        ["kun","小さい","ちいさい","nhỏ, bé"],
+        ["kun","小包","こづつみ","bưu kiện"],
+        ["kun","小麦","こむぎ","lúa mì"],
+        ["kun","小川","おがわ","con suối"]
+      ]
+    },
+    {
+      "glyph": "高",
+      "han": "Cao",
+      "kun": "たか（だか）",
+      "on": "コウ",
+      "meaning": "Cao, đắt",
+      "vocab": [
+        ["on","高校","こうこう","trường cấp ba"],
+        ["on","高校生","こうこうせい","học sinh cấp ba"],
+        ["on","最高","さいこう","tốt nhất, tuyệt nhất"],
+        ["on","高級","こうきゅう","cao cấp"],
+        ["kun","高い","たかい","cao, đắt"],
+        ["kun","高める","たかめる","nâng cao, làm tăng"],
+        ["kun","円高","えんだか","đồng yên mạnh lên"],
+        ["kun","残高","ざんだか","số dư tài khoản"]
+      ]
+    },
+    {
+      "glyph": "安",
+      "han": "An",
+      "kun": "やす",
+      "on": "アン",
+      "meaning": "Yên ổn, rẻ",
+      "vocab": [
+        ["on","安心する","あんしんする","yên tâm"],
+        ["on","安全な","あんぜんな","an toàn"],
+        ["on","不安な","ふあんな","bất an"],
+        ["on","安定","あんてい","ổn định"],
+        ["on","安易な","あんいな","dễ dãi, thiếu cân nhắc"],
+        ["kun","安い","やすい","rẻ"],
+        ["kun","目安","めやす","mốc tham khảo"],
+        ["kun","円安","えんやす","đồng yên yếu đi"]
+      ]
+    },
+    {
+      "glyph": "新",
+      "han": "Tân",
+      "kun": "あたら、あら、にい",
+      "on": "シン",
+      "meaning": "Mới",
+      "vocab": [
+        ["on","新聞","しんぶん","báo"],
+        ["on","新幹線","しんかんせん","tàu cao tốc Shinkansen"],
+        ["on","新年","しんねん","năm mới"],
+        ["on","新鮮な","しんせんな","tươi, mới"],
+        ["kun","新しい","あたらしい","mới"],
+        ["kun","新たな","あらたな","mới, mới mẻ"],
+        ["kun","新潟","にいがた","Niigata (địa danh)"]
+      ]
+    },
+    {
+      "glyph": "古",
+      "han": "Cổ",
+      "kun": "ふる",
+      "on": "コ",
+      "meaning": "Cũ, xưa",
+      "vocab": [
+        ["on","中古","ちゅうこ","đồ đã qua sử dụng"],
+        ["on","考古学","こうこがく","khảo cổ học"],
+        ["on","古代","こだい","thời cổ đại"],
+        ["on","古都","こと","cố đô"],
+        ["kun","古い","ふるい","cũ"],
+        ["kun","古本","ふるほん","sách cũ"],
+        ["kun","使い古す","つかいふるす","dùng đến cũ mòn"]
+      ]
+    },
+    {
+      "glyph": "元",
+      "han": "Nguyên",
+      "kun": "もと",
+      "on": "ゲン、ガン",
+      "meaning": "Gốc, ban đầu",
+      "vocab": [
+        ["on","元気な","げんきな","khỏe mạnh, tràn đầy sức sống"],
+        ["on","元日","がんじつ","ngày đầu năm"],
+        ["on","三次元","さんじげん","ba chiều"],
+        ["on","元","げん","nhà Nguyên"],
+        ["on","紀元前","きげんぜん","trước Công nguyên"],
+        ["kun","足元","あしもと","chỗ dưới chân"],
+        ["kun","地元","じもと","địa phương, quê nhà"]
+      ]
+    },
+    {
+      "glyph": "気",
+      "han": "Khí",
+      "kun": "いき",
+      "on": "キ、ケ",
+      "meaning": "Khí, tinh thần, cảm xúc",
+      "vocab": [
+        ["on","元気な","げんきな","khỏe mạnh, tràn đầy sức sống"],
+        ["on","気をつける","きをつける","chú ý, cẩn thận"],
+        ["on","天気","てんき","thời tiết"],
+        ["on","電気","でんき","điện, đèn điện"],
+        ["on","気持ち","きもち","cảm xúc, tâm trạng"],
+        ["on","人気","にんき","sự yêu thích, độ phổ biến"],
+        ["on","気に入る","きにいる","thích, ưng ý"],
+        ["on","気配","けはい","dấu hiệu, cảm giác có gì đó"]
+      ]
+    }
+  ],
+  "flashcards": ["大きい","小さい","高い","安い","新しい","古い","元気な","人気","大学生","新年","古本","高校生","小説","安全な","気をつける","地元","円高","円安"],
+  "sentences": [
+    ["わたしの だいがくは おおきいです。","Trường đại học của tôi lớn.",[["topic","私の大学は"],["predicate","大きいです。"]]],
+    ["この ほんは ちいさいです。","Quyển sách này nhỏ.",[["topic","この本は"],["predicate","小さいです。"]]],
+    ["きょうは てんきが いいです。","Hôm nay thời tiết đẹp.",[["time","今日は"],["subject","天気が"],["predicate","いいです。"]]],
+    ["この みせは にんきが あります。","Cửa hàng này được nhiều người yêu thích.",[["topic","この店は"],["subject","人気が"],["predicate","あります。"]]],
+    ["ふるい ほんを よみました。","Tôi đã đọc một quyển sách cũ.",[["object","古い本を"],["predicate","読みました。"]]],
+    ["あたらしい だいがくで べんきょうしたいです。","Tôi muốn học ở một trường đại học mới.",[["place","新しい大学で"],["predicate","勉強したいです。"]]],
+    ["この ちゅうこの くるまは やすいです。","Chiếc xe cũ này rẻ.",[["topic","この中古の車は"],["predicate","安いです。"]]],
+    ["あしもとに きを つけて ください。","Xin chú ý chỗ đặt chân.",[["target","足元に"],["predicate","気をつけてください。"]]],
+    ["この ふるい ほんは とても たいせつです。","Quyển sách cũ này rất quý.",[["topic","この古い本は"],["predicate","とても大切です。"]]],
+    ["この みせの たべものは やすくて、にんきが あります。","Đồ ăn ở cửa hàng này rẻ và được nhiều người yêu thích.",[["topic","この店の食べ物は"],["predicate","安くて、"],["subject","人気が"],["predicate","あります。"]]],
+    ["しんねんに あたらしい かばんを かいました。","Đầu năm mới, tôi đã mua một chiếc cặp mới.",[["time","新年に"],["object","新しいかばんを"],["predicate","買いました。"]]],
+    ["わたしは じもとの ちいさい みせが すきです。","Tôi thích cửa hàng nhỏ ở địa phương.",[["topic","私は"],["target","地元の小さい店が"],["predicate","好きです。"]]],
+    ["きょうとは にほんの ふるい まちです。","Kyoto là một thành phố cổ của Nhật Bản.",[["topic","京都は"],["predicate","日本の古い町です。"]]],
+    ["わたしは だいがくせいです。","Tôi là sinh viên.",[["topic","私は"],["predicate","大学生です。"]]],
+    ["だいがくに あたらしい ともだちが います。","Tôi có bạn mới ở trường đại học.",[["place","大学に"],["subject","新しい友達が"],["predicate","います。"]]],
+    ["しんねんに かぞくと あいました。","Đầu năm, tôi đã gặp gia đình.",[["time","新年に"],["partner","家族と"],["predicate","会いました。"]]],
+    ["たいしかんの まえに おおきい たてものが あります。","Trước đại sứ quán có một tòa nhà lớn.",[["place","大使館の前に"],["subject","大きい建物が"],["predicate","あります。"]]],
+    ["この みせの やさいは しんせんです。","Rau ở cửa hàng này tươi.",[["topic","この店の野菜は"],["predicate","新鮮です。"]]],
+    ["じもとの だいがくに おおきい としょかんが あります。","Trường đại học ở địa phương có một thư viện lớn.",[["place","地元の大学に"],["subject","大きい図書館が"],["predicate","あります。"]]],
+    ["まいにち あたらしい ことばを べんきょうします。","Mỗi ngày tôi học từ mới.",[["time","毎日"],["object","新しい言葉を"],["predicate","勉強します。"]]],
+    ["この だいがくは にんきが あります。","Trường đại học này được nhiều người yêu thích.",[["topic","この大学は"],["subject","人気が"],["predicate","あります。"]]],
+    ["わたしは ふるい しょうせつが だいすきです。","Tôi rất thích tiểu thuyết cũ.",[["topic","私は"],["target","古い小説が"],["predicate","大好きです。"]]]
+  ]
+}

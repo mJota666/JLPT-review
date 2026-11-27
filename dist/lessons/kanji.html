@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Học Kanji N5, ôn từ vựng và luyện đọc tiếng Nhật.">
+  <title>Kanji · JLPT Review</title>
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="./kanji.css">
+  <script type="module" src="./kanji.js"></script>
+</head>
+<body class="player kanji-player">
+  <header class="player-header">
+    <a href="../#kanji">Thư viện</a>
+    <span id="lesson-title">Kanji</span>
+  </header>
+  <main class="deck" id="deck" aria-label="Bài học">
+    <p id="loading" role="status">Đang tải bài học…</p>
+    <noscript><p>Bật JavaScript để xem bài Kanji.</p></noscript>
+  </main>
+  <nav class="controls" aria-label="Điều khiển bài học" hidden>
+    <button class="nav-btn" id="prev" type="button">Lùi</button>
+    <div class="progress-group">
+      <span class="counter" id="counter" role="status"></span>
+      <progress id="progress" aria-label="Tiến độ bài học"></progress>
+    </div>
+    <button class="nav-btn" id="next" type="button">Tiếp</button>
+  </nav>
+</body>
+</html>
