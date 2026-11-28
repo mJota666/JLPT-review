@@ -121,14 +121,45 @@
 .practice-links { display: flex; flex-wrap: wrap; justify-content: center; gap: .75rem 1.25rem; }
 .practice-links a { color: #782c3e; font-weight: 750; text-underline-offset: .2em; }
 
-.window-body .kanji-glyph {
-  margin: 0;
-  color: var(--berry);
-  font-weight: 750;
-  font-size: clamp(6rem, 15vw, 10rem);
-  line-height: 1.1;
+.character-study {
+  display: grid;
+  grid-template-columns: minmax(0, .92fr) minmax(0, 1fr);
+  align-items: start;
+  gap: clamp(1.2rem, 4vw, 3.5rem);
 }
-.window-body .han-reading { color: var(--berry); font-weight: 750; font-size: clamp(1.35rem, 3.2vw, 2.3rem); }
+.character-panel { min-width: 0; }
+.character-grid {
+  display: grid;
+  place-items: center;
+  width: min(100%, 23rem);
+  aspect-ratio: 1.08;
+  margin-inline: auto;
+  border: 1px solid #bf687b;
+  background:
+    linear-gradient(90deg, transparent calc(50% - .5px), #a6475d55 50%, transparent calc(50% + .5px)),
+    linear-gradient(0deg, transparent calc(50% - .5px), #a6475d55 50%, transparent calc(50% + .5px)),
+    radial-gradient(ellipse at 18% 15%, #fff5f4, transparent 65%),
+    #f5bbc8;
+  box-shadow: .35rem .35rem 0 #eb9fb266, inset 0 0 0 .55rem #fff9f780;
+}
+.character-grid .kanji-glyph {
+  margin: 0;
+  color: #672437;
+  font-weight: 800;
+  font-size: clamp(9rem, 20vw, 16rem);
+  line-height: 1;
+}
+.window-body .han-reading {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: .6rem;
+  margin: .55rem auto .65rem;
+  color: #672437;
+  font-weight: 750;
+  font-size: clamp(1.6rem, 3vw, 2.55rem);
+}
+.han-reading span { color: #782c3e; font-size: .9rem; }
 .writing-tutorial { max-width: 30rem; margin-inline: auto; }
 .writing-tutorial summary {
   width: fit-content;
@@ -174,29 +205,74 @@
 .window-body .stroke-credit { font-size: .875rem; }
 .stroke-credit a { color: var(--berry); }
 
-.reading-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: .7rem;
-  margin-block-end: 0;
+.reading-panel { text-align: left; }
+.reading-panel h3 {
+  margin: 0 0 .8rem;
+  color: #672437;
+  font: 400 clamp(1.85rem, 3.5vw, 3rem)/1.18 "Spectral", Georgia, serif;
 }
-.reading-grid > div { padding: .7rem; border: 1px solid #ae8273; background: #f7ebdf; }
-.reading-grid .reading-on { background: var(--pink); }
-.reading-grid .reading-kun { background: var(--orange); }
-.reading-grid dt { font-weight: 750; }
-.reading-grid dd { margin: .35em 0 0; font-size: clamp(1.2rem, 2.7vw, 2rem); overflow-wrap: anywhere; }
+.reading-grid { display: grid; gap: .58rem; margin: 0; }
+.reading-grid > div {
+  padding: .62rem clamp(.8rem, 2vw, 1.45rem) .78rem;
+  border-left: .32rem solid var(--reading-edge, #b89065);
+  background: var(--reading-paper, #f8eedf);
+}
+.reading-grid .reading-on { --reading-edge: #ac3d5a; --reading-paper: #f9d9e1; }
+.reading-grid .reading-kun { --reading-edge: #a56a13; --reading-paper: #ffedc8; }
+.reading-grid dt { font-weight: 800; color: #4f342e; }
+.reading-grid dd { margin: .12em 0 0; font-size: clamp(1.28rem, 2.6vw, 2.3rem); overflow-wrap: anywhere; }
+.reading-grid .reading-value {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .12em .1em;
+  font-size: clamp(1.65rem, 3.2vw, 2.8rem);
+  font-weight: 700;
+  line-height: 1.18;
+}
+.reading-value span { min-width: 0; }
 
+.vocab-heading {
+  display: flex;
+  align-items: center;
+  gap: clamp(.9rem, 3vw, 2rem);
+  margin-bottom: 1rem;
+  text-align: left;
+  color: #672437;
+}
+.vocab-heading .vocab-glyph {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: clamp(4.6rem, 12vw, 8rem);
+  aspect-ratio: 1;
+  background: #672437;
+  color: #fff3ec;
+  box-shadow: .25rem .25rem 0 #edafbb;
+  font-size: clamp(3.3rem, 9vw, 6rem);
+  font-weight: 700;
+  line-height: 1;
+}
+.vocab-heading h2 { margin: 0; }
+.vocab-heading h2 + span { font-size: .95rem; font-weight: 700; }
+.window-body:has(.vocab-study) { padding-block: clamp(1rem, 2.4vw, 1.9rem); }
 .vocab-table { width: 100%; border-collapse: collapse; text-align: left; table-layout: fixed; }
-.vocab-table th, .vocab-table td { padding: .4em .55em; overflow-wrap: anywhere; }
-.vocab-table td { border-bottom: 1px solid #95686b47; font-size: clamp(.98rem, 1.8vw, 1.45rem); }
-.vocab-table td[lang="ja"] { font-size: clamp(1.15rem, 2.5vw, 1.95rem); line-height: 1.4; }
-.vocab-table thead th { border-bottom: 1px solid var(--outline); }
-.vocab-on th { background: var(--pink); color: #672437; }
-.vocab-kun th { background: var(--orange); color: #523500; }
-.vocab-special th { background: #242020; color: white; }
-.vocab-on td[lang="ja"] { color: #782c3e; }
-.vocab-kun td[lang="ja"] { color: #664000; }
-.vocab-special td[lang="ja"] { color: #242020; }
+.vocab-table th, .vocab-table td { padding: .28em .63em; overflow-wrap: anywhere; }
+.vocab-table td {
+  border-bottom: 1px solid #bd949b66;
+  background: #fff9f2;
+  font-size: clamp(1rem, 1.8vw, 1.45rem);
+  line-height: 1.3;
+}
+.vocab-table tr:nth-child(odd) td { background: #f9eee5; }
+.vocab-table .vocab-word { font-size: clamp(1.35rem, 3vw, 2.55rem); font-weight: 750; }
+.vocab-table .vocab-kana { font-size: clamp(1.15rem, 2.45vw, 2.12rem); font-weight: 650; }
+.vocab-table thead th { background: #672437; color: #fff6ef; }
+.vocab-table tbody { --vocab-emphasis: #862a44; --vocab-tint: #f8cfdb; }
+.vocab-table .vocab-kun { --vocab-emphasis: #704400; --vocab-tint: #ffedc3; }
+.vocab-table .vocab-special { --vocab-emphasis: #252028; --vocab-tint: #e8e2e6; }
+.vocab-table tbody th { background: var(--vocab-tint); color: var(--vocab-emphasis); }
+.vocab-table .vocab-special th { background: #302830; color: white; }
+.vocab-word mark { background: var(--vocab-tint); color: var(--vocab-emphasis); }
 .kanji-player .step-mode tr.step-enter {
   animation-name: vocab-appear;
 }
@@ -218,8 +294,13 @@
 
 @media (max-width: 560px) {
   .kanji-player .slide { align-content: start; }
+  .kanji-player .player-header { gap: .5rem; }
+  .kanji-player .player-header > a:first-child { white-space: nowrap; }
+  .kanji-player #lesson-title { font-size: .875rem; }
   .kanji-folders { gap: .85rem .5rem; }
-  .reading-grid { grid-template-columns: 1fr; }
+  .character-study { grid-template-columns: 1fr; gap: 1rem; }
+  .character-grid { width: min(100%, 14.75rem); }
+  .character-grid .kanji-glyph { font-size: clamp(8.5rem, 46vw, 12rem); }
   .vocab-table th, .vocab-table td { padding-inline: .28em; }
 }
 @media (prefers-reduced-motion: reduce) {

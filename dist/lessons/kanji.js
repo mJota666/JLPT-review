@@ -152,9 +152,23 @@ function vocabulary(entry, types) {
     table.append(el('tbody', { class: `vocab-${type}` },
       el('tr', { 'data-step': '' }, el('th', { scope: 'rowgroup', colspan: '3' }, readingTypes[type])),
       ...rows.map(([, word, kana, meaning]) => el('tr', { 'data-step': '' },
-        jp('td', word, 'vocab-word'), jp('td', kana, 'vocab-kana'), el('td', {}, meaning)))));
+        el('td', { lang: 'ja', class: 'vocab-word' }, ...Array.from(word, character =>
+          character === entry.glyph ? el('mark', {}, character) : character)),
+        jp('td', kana, 'vocab-kana'), el('td', {}, meaning)))));
   }
-  return slide(windowFrame(`Từ vựng · ${entry.han}`, heading(entry.glyph), table));
+  const total = entry.vocab.filter(([type]) => types.includes(type)).length;
+  return slide(windowFrame('Từ vựng',
+    el('div', { class: 'vocab-study' },
+      el('div', { class: 'vocab-heading' },
+        jp('span', entry.glyph, 'vocab-glyph'),
+        el('div', {}, heading(entry.han), el('span', {}, `${total} từ vựng`))),
+      table)));
+}
+
+function reading(value) {
+  const sounds = value.split('、');
+  return el('dd', { lang: 'ja', class: 'reading-value' }, ...sounds.map((sound, index) =>
+    el('span', {}, sound + (index < sounds.length - 1 ? '、' : ''))));
 }
 
 function renderLesson(lesson, words) {
@@ -163,13 +177,17 @@ function renderLesson(lesson, words) {
   for (const entry of lesson.kanji) {
     targets.push(slides.length + 2);
     slides.push(slide(windowFrame(lesson.title,
-      el('h2', { class: 'kanji-glyph', lang: 'ja' }, entry.glyph),
-      el('p', { class: 'han-reading' }, entry.han),
-      writingTutorial(entry.glyph),
-      el('dl', { class: 'reading-grid' },
-        step('div', 'reading-kun', el('dt', {}, 'Kunyomi'), jp('dd', entry.kun, 'reading-value')),
-        step('div', 'reading-on', el('dt', {}, 'Onyomi'), jp('dd', entry.on, 'reading-value')),
-        step('div', 'reading-meaning', el('dt', {}, 'Nghĩa'), el('dd', {}, entry.meaning))))));
+      el('div', { class: 'character-study' },
+        el('div', { class: 'character-panel' },
+          el('div', { class: 'character-grid' }, jp('h2', entry.glyph, 'kanji-glyph')),
+          el('p', { class: 'han-reading' }, el('span', {}, 'Hán Việt'), entry.han),
+          writingTutorial(entry.glyph)),
+        el('div', { class: 'reading-panel' },
+          el('h3', {}, 'Âm đọc và nghĩa'),
+          el('dl', { class: 'reading-grid' },
+            step('div', 'reading-kun', el('dt', {}, 'Kunyomi'), reading(entry.kun)),
+            step('div', 'reading-on', el('dt', {}, 'Onyomi'), reading(entry.on)),
+            step('div', 'reading-meaning', el('dt', {}, 'Nghĩa'), el('dd', {}, entry.meaning))))))));
     if (entry.vocab.some(([type]) => type === 'on')) slides.push(vocabulary(entry, ['on']));
     if (entry.vocab.some(([type]) => type !== 'on')) slides.push(vocabulary(entry, ['kun', 'special']));
   }
