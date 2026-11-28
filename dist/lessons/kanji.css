@@ -21,6 +21,19 @@
 .kanji-player [lang="ja"] { font-family: var(--japanese); }
 .kanji-player #loading { margin-inline: auto; padding: 1rem; }
 .kanji-player .player-header, .kanji-player .controls { background: var(--shell); }
+.kanji-player .kanji-overview {
+  display: inline-grid;
+  place-items: center;
+  min-height: 2.75rem;
+  padding: .35rem .65rem;
+  border: 1px solid var(--outline);
+  border-radius: .4rem;
+  background: var(--pink);
+  color: var(--berry);
+  text-align: center;
+  text-decoration: none;
+}
+.kanji-player .kanji-overview:hover { background: #f3aebf; }
 .kanji-player .controls[hidden] { display: none; }
 .kanji-player .nav-btn { border-color: var(--berry); color: var(--berry); }
 .kanji-player .nav-btn:last-child { background: var(--berry); color: white; }
