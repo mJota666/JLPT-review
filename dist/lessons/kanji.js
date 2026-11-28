@@ -89,7 +89,7 @@ const heading = text => el('h2', {}, text);
 function writingTutorial(glyph) {
   const code = glyph.codePointAt(0).toString(16).padStart(5, '0');
   const rows = strokes[code];
-  if (!rows) return '';
+  if (!rows) return null;
 
   function graphic(tag, attrs) {
     const element = document.createElementNS('http://www.w3.org/2000/svg', tag);
@@ -123,15 +123,14 @@ function writingTutorial(glyph) {
     }
     back.setAttribute('aria-disabled', String(count === 0));
     next.setAttribute('aria-disabled', String(count === rows.length));
-    status.textContent = count ? `Nét ${count}/${rows.length}` : `${rows.length} nét · Bấm Nét tiếp để bắt đầu`;
+    status.textContent = `Nét ${count}/${rows.length}`;
   }
 
   back.addEventListener('click', () => showStrokes(count - 1));
   next.addEventListener('click', () => showStrokes(count + 1, true));
   reset.addEventListener('click', () => showStrokes(0));
   showStrokes(0);
-  return el('details', { class: 'writing-tutorial' },
-    el('summary', {}, 'Cách viết'),
+  return el('div', { class: 'writing-tutorial' },
     board,
     status,
     el('div', { class: 'stroke-controls' }, back, next, reset),
@@ -171,23 +170,47 @@ function reading(value) {
     el('span', {}, sound + (index < sounds.length - 1 ? '、' : ''))));
 }
 
+function characterDetails(entry, slideNumber) {
+  const readings = el('dl', { class: 'reading-grid' },
+    step('div', 'reading-kun', el('dt', {}, 'Kunyomi'), reading(entry.kun)),
+    step('div', 'reading-on', el('dt', {}, 'Onyomi'), reading(entry.on)),
+    step('div', 'reading-meaning', el('dt', {}, 'Nghĩa'), el('dd', {}, entry.meaning)));
+  const writing = writingTutorial(entry.glyph);
+  if (!writing) return readings;
+
+  readings.id = `kanji-readings-${slideNumber}`;
+  writing.id = `kanji-writing-${slideNumber}`;
+  const readingButton = el('button', { type: 'button', 'aria-controls': readings.id }, 'Âm đọc và nghĩa');
+  const writingButton = el('button', { type: 'button', 'aria-controls': writing.id }, 'Cách viết');
+
+  function showWriting(enabled) {
+    if (!enabled && writing.contains(document.activeElement)) readingButton.focus({ preventScroll: true });
+    readings.inert = enabled;
+    writing.inert = !enabled;
+    readingButton.setAttribute('aria-pressed', String(!enabled));
+    writingButton.setAttribute('aria-pressed', String(enabled));
+  }
+
+  readingButton.addEventListener('click', () => showWriting(false));
+  writingButton.addEventListener('click', () => showWriting(true));
+  readings.addEventListener('stepreveal', () => showWriting(false));
+  showWriting(false);
+  return el('div', { class: 'character-details' },
+    el('div', { class: 'character-modes', role: 'group', 'aria-label': 'Nội dung Kanji' }, readingButton, writingButton),
+    el('div', { class: 'character-views' }, readings, writing));
+}
+
 function renderLesson(lesson, words) {
   const slides = [];
   const targets = [];
   for (const entry of lesson.kanji) {
-    targets.push(slides.length + 2);
-    slides.push(slide(windowFrame(lesson.title,
-      el('div', { class: 'character-study' },
-        el('div', { class: 'character-panel' },
-          el('div', { class: 'character-grid' }, jp('h2', entry.glyph, 'kanji-glyph')),
-          el('p', { class: 'han-reading' }, el('span', {}, 'Hán Việt'), entry.han),
-          writingTutorial(entry.glyph)),
-        el('div', { class: 'reading-panel' },
-          el('h3', {}, 'Âm đọc và nghĩa'),
-          el('dl', { class: 'reading-grid' },
-            step('div', 'reading-kun', el('dt', {}, 'Kunyomi'), reading(entry.kun)),
-            step('div', 'reading-on', el('dt', {}, 'Onyomi'), reading(entry.on)),
-            step('div', 'reading-meaning', el('dt', {}, 'Nghĩa'), el('dd', {}, entry.meaning))))))));
+    const slideNumber = slides.length + 2;
+    const character = el('div', { class: 'character-panel' },
+      el('div', { class: 'character-grid' }, jp('h2', entry.glyph, 'kanji-glyph')),
+      el('p', { class: 'han-reading' }, el('span', {}, 'Hán Việt'), entry.han));
+    const study = el('div', { class: 'character-study' }, character, characterDetails(entry, slideNumber));
+    targets.push(slideNumber);
+    slides.push(slide(windowFrame(lesson.title, study)));
     if (entry.vocab.some(([type]) => type === 'on')) slides.push(vocabulary(entry, ['on']));
     if (entry.vocab.some(([type]) => type !== 'on')) slides.push(vocabulary(entry, ['kun', 'special']));
   }

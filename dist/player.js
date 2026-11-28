@@ -38,7 +38,9 @@ function show(slideIndex, stepIndex, animate = false) {
     }
   }
   if (animate && revealed > 0) {
-    steps[current][revealed - 1].scrollIntoView({ block: 'nearest', inline: 'nearest' });
+    const step = steps[current][revealed - 1];
+    step.dispatchEvent(new Event('stepreveal', { bubbles: true }));
+    step.scrollIntoView({ block: 'nearest', inline: 'nearest' });
   }
 
   counter.textContent = `Slide ${current + 1}/${slides.length} · Ý ${revealed}/${steps[current].length}`;
