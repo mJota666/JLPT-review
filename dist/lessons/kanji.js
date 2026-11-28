@@ -1,3 +1,5 @@
+import { strokes } from './kanji-data/strokes.js';
+
 const readingTypes = {
   on: 'Onyomi',
   kun: 'Kunyomi',
@@ -84,6 +86,62 @@ const slide = (...children) => {
 };
 const heading = text => el('h2', {}, text);
 
+function writingTutorial(glyph) {
+  const code = glyph.codePointAt(0).toString(16).padStart(5, '0');
+  const rows = strokes[code];
+  if (!rows) return '';
+
+  function graphic(tag, attrs) {
+    const element = document.createElementNS('http://www.w3.org/2000/svg', tag);
+    for (const [key, value] of Object.entries(attrs)) element.setAttribute(key, value);
+    return element;
+  }
+
+  const board = graphic('svg', { class: 'stroke-board', viewBox: '0 0 109 109', 'aria-hidden': 'true' });
+  const paths = rows.map(([d]) => graphic('path', { d, pathLength: '1', class: 'stroke-ink' }));
+  const numbers = rows.map(([, x, y], index) => {
+    const number = graphic('text', { x, y, class: 'stroke-number' });
+    number.textContent = index + 1;
+    return number;
+  });
+  board.append(...rows.map(([d]) => graphic('path', { d, class: 'stroke-guide' })), ...paths, ...numbers);
+
+  const back = el('button', { type: 'button', class: 'nav-btn' }, 'Nét trước');
+  const next = el('button', { type: 'button', class: 'nav-btn' }, 'Nét tiếp');
+  const reset = el('button', { type: 'button', class: 'nav-btn' }, 'Bắt đầu lại');
+  const status = el('output', { class: 'stroke-status' });
+  let count = 0;
+
+  function showStrokes(index, animate = false) {
+    if (index < 0 || index > rows.length) return;
+    count = index;
+    for (let i = 0; i < paths.length; i++) {
+      paths[i].classList.toggle('is-written', i < count);
+      paths[i].classList.toggle('is-current', i === count - 1);
+      paths[i].classList.toggle('is-drawing', animate && i === count - 1);
+      numbers[i].classList.toggle('is-current', i === count - 1);
+    }
+    back.setAttribute('aria-disabled', String(count === 0));
+    next.setAttribute('aria-disabled', String(count === rows.length));
+    status.textContent = count ? `Nét ${count}/${rows.length}` : `${rows.length} nét · Bấm Nét tiếp để bắt đầu`;
+  }
+
+  back.addEventListener('click', () => showStrokes(count - 1));
+  next.addEventListener('click', () => showStrokes(count + 1, true));
+  reset.addEventListener('click', () => showStrokes(0));
+  showStrokes(0);
+  return el('details', { class: 'writing-tutorial' },
+    el('summary', {}, 'Cách viết'),
+    board,
+    status,
+    el('div', { class: 'stroke-controls' }, back, next, reset),
+    el('p', { class: 'stroke-credit' },
+      'Nét viết phỏng theo ',
+      el('a', { href: 'https://kanjivg.tagaini.net/' }, 'KanjiVG (Ulrich Apel)'),
+      ' · ',
+      el('a', { href: 'https://creativecommons.org/licenses/by-sa/3.0/' }, 'CC BY-SA 3.0')));
+}
+
 function vocabulary(entry, types) {
   const table = el('table', { class: 'vocab-table' },
     el('thead', {}, el('tr', {}, ...['Từ vựng', 'Hiragana', 'Nghĩa tiếng Việt'].map(
@@ -107,6 +165,7 @@ function renderLesson(lesson, words) {
     slides.push(slide(windowFrame(lesson.title,
       el('h2', { class: 'kanji-glyph', lang: 'ja' }, entry.glyph),
       el('p', { class: 'han-reading' }, entry.han),
+      writingTutorial(entry.glyph),
       el('dl', { class: 'reading-grid' },
         step('div', 'reading-kun', el('dt', {}, 'Kunyomi'), jp('dd', entry.kun, 'reading-value')),
         step('div', 'reading-on', el('dt', {}, 'Onyomi'), jp('dd', entry.on, 'reading-value')),
